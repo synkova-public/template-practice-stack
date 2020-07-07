@@ -5,8 +5,9 @@
 template <class T>
 class MyStack {
     private:
-    int size = 2, top = -1;
-    T stack[2];
+    const static int STACK_SIZE = 2;
+    int top = -1;
+    T stack[STACK_SIZE] = {};
     
 
     public:
@@ -18,7 +19,7 @@ class MyStack {
 
 template <class T>
 void MyStack<T>::push(T elem) {
-        if (top >= size - 1)
+        if (top >= STACK_SIZE - 1)
         {
             printf("Stack overflow. Stack is full, push operation failed \n");
         } else
@@ -53,7 +54,7 @@ bool MyStack<T>::isEmpty() {
         return true;
     } else
     {
-        printf("The stack is not empty. Current top position is %d. The stack size is %d. \n", top + 1, size);
+        printf("The stack is not empty. Current top position is %d. The stack size is %d. \n", top + 1, STACK_SIZE);
         return false;
     }
 }
@@ -68,7 +69,7 @@ T MyStack<T>::peek() {
     {
         elem = stack[top];
         std::string s = std::to_string(elem);
-        printf("Top element is %s. Current top element is at position %d. \n", s.c_str(), top + 1);
+        printf("top element is %s. Current top element is at position %d. \n", s.c_str(), top + 1);
     }
     return elem;
 }
